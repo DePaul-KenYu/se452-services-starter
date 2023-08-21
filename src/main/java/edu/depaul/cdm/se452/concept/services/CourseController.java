@@ -20,7 +20,7 @@ import edu.depaul.cdm.se452.concept.rdbm.school.simple.Course;
 import edu.depaul.cdm.se452.concept.rdbm.school.simple.CourseRepository;
 
 @RestController
-@RequestMapping("/courses")
+@RequestMapping("/api/courses")
 public class CourseController {
     @Autowired
     private CourseRepository repo;
