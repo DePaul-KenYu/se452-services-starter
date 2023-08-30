@@ -2,6 +2,9 @@ package edu.depaul.cdm.se452.concept.rdbm.school.complex;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -18,6 +21,7 @@ import lombok.ToString;
 
 @Data
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
 public class University {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
