@@ -1,10 +1,9 @@
-package edu.depaul.cdm.se452.concept.services;
+package edu.depaul.cdm.se452.concept.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.hamcrest.CoreMatchers;
-import org.hamcrest.core.Is;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -22,7 +21,7 @@ import edu.depaul.cdm.se452.concept.rdbm.school.simple.StudentRepository;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class StudentServiceTest {
+public class StudentControllerTest {
     private static final String STUDENT_URL = "/api/students";
 
     @Autowired
