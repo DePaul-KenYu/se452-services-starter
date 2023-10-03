@@ -36,7 +36,7 @@ public class CourseController {
     private CourseService service;
 
     @GetMapping
-    @Operation(summary = "Returns all the course in the database")
+    @Operation(summary = "Returns all the course offered by the school")
     @ApiResponse(responseCode = "200", description = "valid response", 
         content = {@Content(mediaType="application/json", schema=@Schema(implementation=Course.class))})
     public List<Course> list() {

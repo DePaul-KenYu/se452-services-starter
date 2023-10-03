@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 
 import lombok.AllArgsConstructor;
@@ -35,6 +36,8 @@ public class Student {
 
 	@Column(name = "nm")
 	private String name;
+
+	private String major;
 
 	@Email(regexp = ".+[@].+[\\.].+")
 	private String email;
