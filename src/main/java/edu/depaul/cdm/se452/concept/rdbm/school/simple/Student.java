@@ -43,7 +43,7 @@ public class Student {
 	private String email;
 
 	@Min(value = 10, message = "Should be older than 10")
-	// @Max(value = 30, message = "Should be younger than 30")	
+	@Max(value = 30, message = "Should be younger than 30")	
 	private long age;
 	private Date admittedDate;
 }

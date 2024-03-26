@@ -53,8 +53,6 @@ public class StudentControllerTest {
 		Student student = Student.builder().name("peter parker").email("peterparker@nyu.edu").age(20).build();
 		String studentAsJson = objectMapper.writeValueAsString(student);
 
-		long beforeSize = studentRepository.count();
-
 		// when - action
 		var request = MockMvcRequestBuilders.post(STUDENT_URL);
 		request.contentType(MediaType.APPLICATION_JSON);
@@ -75,15 +73,11 @@ public class StudentControllerTest {
 		Student student = Student.builder().name("peter parker").build();
 		String studentAsJson = objectMapper.writeValueAsString(student);
 
-		long beforeSize = studentRepository.count();
-
 		// when - action
 		var request = MockMvcRequestBuilders.post(STUDENT_URL+"/valid");
 		request.contentType(MediaType.APPLICATION_JSON);
 		request.content(studentAsJson);
 		ResultActions response = mockMvc.perform(request);
-
-		var jsonResponse = response.andReturn().getResponse().getContentAsString();
 
 		response.andExpect(MockMvcResultMatchers.status().isBadRequest());
 //		response.andExpect(MockMvcResultMatchers.jsonPath("$.email", Is.is("must not be blank")));
@@ -95,15 +89,11 @@ public class StudentControllerTest {
 		Student student = Student.builder().name("peter parker").email("peter@nyu.edu").age(20).build();
 		String studentAsJson = objectMapper.writeValueAsString(student);
 
-		long beforeSize = studentRepository.count();
-
 		// when - action
 		var request = MockMvcRequestBuilders.post(STUDENT_URL+"/valid");
 		request.contentType(MediaType.APPLICATION_JSON);
 		request.content(studentAsJson);
 		ResultActions response = mockMvc.perform(request);
-
-		var jsonResponse = response.andReturn().getResponse().getContentAsString();
 
 		response.andExpect(MockMvcResultMatchers.status().isOk());
     }
