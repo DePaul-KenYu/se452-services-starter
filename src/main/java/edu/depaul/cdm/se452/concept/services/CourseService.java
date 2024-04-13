@@ -11,11 +11,13 @@ import edu.depaul.cdm.se452.concept.rdbm.school.simple.CourseRepository;
 import lombok.extern.log4j.Log4j2;
 
 /**
- * Documented services
+ * Services
  */
 @Service
 @Log4j2
 public class CourseService {
+    // @Autowired ensure that CourseRepository interface is properly constructed 
+    // and available before CourseService is ready to use
     @Autowired
     private CourseRepository repo;
 
