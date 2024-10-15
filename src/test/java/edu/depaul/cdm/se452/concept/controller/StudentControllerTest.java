@@ -64,7 +64,20 @@ public class StudentControllerTest {
 		Student updatedStudent = new ObjectMapper().readValue(jsonResponse, Student.class);
 
 		response.andExpect(MockMvcResultMatchers.status().isOk());
+
 		assertNotEquals(updatedStudent.getId(), student.getId());
+		// given - setup or precondition
+		long beforeSize = studentRepository.count();
+
+		// when - action to remove
+		request = MockMvcRequestBuilders.delete(STUDENT_URL+"/1");
+		response = mockMvc.perform(request);
+
+		long afterSize = studentRepository.count();
+
+		response.andExpect(MockMvcResultMatchers.status().isOk());
+		assertEquals(beforeSize - 1, afterSize);
+
     }
 
     @Test
@@ -98,21 +111,4 @@ public class StudentControllerTest {
 		response.andExpect(MockMvcResultMatchers.status().isOk());
     }
 
-
-
-	@Test
-    public void removeStudent() throws Exception {
-		// given - setup or precondition
-		long beforeSize = studentRepository.count();
-
-		// when - action
-		var request = MockMvcRequestBuilders.delete(STUDENT_URL+"/1");
-		ResultActions response = mockMvc.perform(request);
-
-		long afterSize = studentRepository.count();
-
-		response.andExpect(MockMvcResultMatchers.status().isOk());
-		assertEquals(beforeSize - 1, afterSize);
-    }
-    
 }
