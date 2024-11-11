@@ -11,6 +11,7 @@ import lombok.Data;
 
 /**
  * Minimialist code to map against database when then table/column is same as the class/property
+ * Validation message example using resource bundle
  */
 @Data
 @Entity
@@ -20,11 +21,11 @@ public class Course {
     private long id;
 
     @NotBlank(message = "course dept must be set")
-    @Size(min= 2,max = 4, message = "dept must be between 2 and 4 characters")
+    @Size(min= 2,max = 4)
     private String dept;
 
     @NotBlank
-    @Size(min= 2,max = 7, message = "dept num must be between 2 and 6 characters")
+    @Size(min= 2,max = 7)
     private String num;
 
 }

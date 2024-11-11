@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.depaul.cdm.se452.concept.rdbm.school.simple.Student;
 import edu.depaul.cdm.se452.concept.rdbm.school.simple.StudentRepository;
-import jakarta.transaction.Transactional;
 import lombok.extern.log4j.Log4j2;
 
 @Service

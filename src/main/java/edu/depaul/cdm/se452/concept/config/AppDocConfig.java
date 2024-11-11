@@ -1,4 +1,4 @@
-package edu.depaul.cdm.se452.concept;
+package edu.depaul.cdm.se452.concept.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

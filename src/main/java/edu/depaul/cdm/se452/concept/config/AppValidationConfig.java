@@ -1,4 +1,4 @@
-package edu.depaul.cdm.se452.concept;
+package edu.depaul.cdm.se452.concept.config;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

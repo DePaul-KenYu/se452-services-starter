@@ -2,13 +2,11 @@ package edu.depaul.cdm.se452.concept.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import edu.depaul.cdm.se452.concept.rdbm.school.complex.School;
@@ -17,7 +15,6 @@ import edu.depaul.cdm.se452.concept.rdbm.school.complex.University;
 import edu.depaul.cdm.se452.concept.rdbm.school.complex.UniversityRepository;
 
 @SpringBootTest
-@AutoConfigureMockMvc
 public class UniversityServiceTest {
 	@Autowired
 	private SchoolRepository schoolRepo;
@@ -28,7 +25,6 @@ public class UniversityServiceTest {
 	@Autowired
 	private UniversityService uniService;
 
-	@AutoConfigureMockMvc
 	@Test
 	public void testUniversityService() {
 		ArrayList<School> schools = new ArrayList<School>();
@@ -51,7 +47,8 @@ public class UniversityServiceTest {
 		University depaul = new University();
 		depaul.setName("DePaul");
 		depaul.setSchools(schools);
-		uniRepo.save(depaul);
+		uniService.addUniversity(depaul);
+//		uniRepo.save(depaul);
 
 		School cdmFinder = schoolRepo.findByName("CDM");
 		cdmFinder.setUniversity(depaul);
@@ -59,7 +56,8 @@ public class UniversityServiceTest {
 
 		University loyola = new University();
 		loyola.setName("Loyla");
-		uniRepo.save(loyola);
+		uniService.addUniversity(loyola);
+//		uniRepo.save(loyola);
 
 		// This will error because transaction demaraction was not set for the lazy
 		// initiation

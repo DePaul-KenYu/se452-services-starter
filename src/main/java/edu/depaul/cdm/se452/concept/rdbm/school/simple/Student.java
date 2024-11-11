@@ -19,6 +19,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Additional setup with mapping between code and table/columns when they do not match  class/property
+ * Validation defined in class
  */
 @Data
 @Entity
